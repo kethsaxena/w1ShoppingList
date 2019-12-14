@@ -1,5 +1,5 @@
 
-$(function(){
+$(function main(){
 
 
   // //CHECK ITEM  
@@ -28,13 +28,6 @@ $(function(){
 
 
   //ADD
-  // $('.js-form').submit(event => {
-  //   // this stops the default form submission behavior
-  //   event.preventDefault();
-  //   const userTextElement = $(event.currentTarget).find('#user-text');
-  //   $(".js-display-user-text").text(`user text is:  ${userTextElement.val()}`);
-  //   userTextElement.val("");
-  // });
 
   $("#js-shopping-list-form").submit(function(event){
     event.preventDefault();console.log('Button entry');
@@ -42,25 +35,13 @@ $(function(){
     console.log(entry.val());
     
     $("ul").append(
-      "<li>"+entry.val()+"</li>");
+      '<li><span class="shopping-item">'+entry.val()+"</span>"+
+      '<div class="shopping-item-controls"><button class="shopping-item-toggle"><span class="button-label">check</span></button> <button class="shopping-item-delete"><span class="button-label">delete</span></button></div></li>');
 
     entry.val("");
-
-
-
-
+    main();
 
 });
-
-  // $("js-shopping-list-form").submit( event => {
-  //   event.preventDefault();
-  //   const entry=$(event.currentTarget).find('#shopping-list-entry');
-  //   console.log("Button Mein entery!");
-  //   console.log(entry.val());
-  //   entry.val("");
-  
- 
-  // });
 
 });
 
