@@ -6,6 +6,7 @@ $(function(){
   $(".shopping-item-toggle").on("click",function(event) {
     console.log(event);
     $(this).closest("li").children("span.shopping-item").toggleClass("shopping-item__checked");
+    console.log("Check Mein entery!")
     // event.stopPropogation();
     //$("span").closest(".shopping-item").toggleClass("shopping-item__checked")
     // $("span").closest(".shopping-item").toggleClass("shopping-item__checked");
@@ -21,20 +22,45 @@ $(function(){
   //DELETE 
   $('.shopping-item-delete').on('click',function(event) {
     this.closest("li").remove();
+    console.log(event);
     console.log("Delete Mein entery!")
   });
 
 
-  //add
-  $("button").click(function(event) {
-    event.preventDefault();
-    console.log("Button Mein entery!")
+  //ADD
+  // $('.js-form').submit(event => {
+  //   // this stops the default form submission behavior
+  //   event.preventDefault();
+  //   const userTextElement = $(event.currentTarget).find('#user-text');
+  //   $(".js-display-user-text").text(`user text is:  ${userTextElement.val()}`);
+  //   userTextElement.val("");
+  // });
+
+  $("#js-shopping-list-form").submit(function(event){
+    event.preventDefault();console.log('Button entry');
+    const entry=$(event.currentTarget).find('#shopping-list-entry');
+    console.log(entry.val());
+    
+    $("ul").append(
+      "<li>"+entry.val()+"</li>");
+
+    entry.val("");
+
+
+
+
+
+});
+
+  // $("js-shopping-list-form").submit( event => {
+  //   event.preventDefault();
+  //   const entry=$(event.currentTarget).find('#shopping-list-entry');
+  //   console.log("Button Mein entery!");
+  //   console.log(entry.val());
+  //   entry.val("");
   
-    // $("ul").append(
-    //   "<li>" +
-    //   ["cat", "dog", "rock"][Math.floor(Math.random()*3)] + "</li>"
-    // );
-  });
+ 
+  // });
 
 });
 
